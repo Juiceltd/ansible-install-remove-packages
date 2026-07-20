@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  role_name: install_remove_packages
+  namespace: juiceltd
+  author: Juiceltd
+  description: Install and remove a small curated package set on Debian-based systems.
+  license: MIT
+  min_ansible_version: "2.14"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - apt
+    - debian
+    - packages
+    - ubuntu
+
+dependencies: []

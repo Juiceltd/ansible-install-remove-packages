@@ -1,0 +1,17 @@
+---
+- name: Remove configured packages
+  ansible.builtin.apt:
+    name: "{{ install_remove_packages_removed + install_remove_packages_extra_removed }}"
+    state: absent
+    purge: true
+  when:
+    - ansible_os_family == "Debian"
+    - (install_remove_packages_removed + install_remove_packages_extra_removed) | length > 0
+
+- name: Install configured packages
+  ansible.builtin.apt:
+    name: "{{ install_remove_packages_installed + install_remove_packages_extra_installed }}"
+    state: present
+  when:
+    - ansible_os_family == "Debian"
+    - (install_remove_packages_installed + install_remove_packages_extra_installed) | length > 0
